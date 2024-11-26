@@ -45,26 +45,26 @@
     <div id="page1">
         <h2>Você sabe o que é capaz de fazer com meus dias?</h2>
         <button class="button" onclick="nextPage(2)">Sim</button>
-        <button class="button" onclick="nextPage(3)">Talvez não...</button>
+        <button class="button" onclick="nextPage(2)">Talvez não...</button>
     </div>
 
     <!-- Página 2 -->
     <div id="page2" style="display:none;">
         <h2>Quer descobrir?</h2>
         <button class="button" onclick="nextPage(3)">Não, sou babaca</button>
-        <button class="button" onclick="nextPage(4)">Claro que sim</button>
+        <button class="button" onclick="nextPage(3)">Claro que sim</button>
     </div>
 
     <!-- Página 3 (Frase) -->
     <div id="page3" style="display:none;">
         <h2>Quando estou sem você eu fico assim...</h2>
-        <button class="button" onclick="nextPage(5)">→</button>
+        <button class="button" onclick="nextPage(4)">→</button>
     </div>
 
     <!-- Página 4 (Imagem 2) -->
     <div id="page4" style="display:none;">
-        <img src="https://i.pinimg.com/736x/40/e7/85/40e7859c02135a3e6c53ed89d9be9131.jpg" alt="Imagem 2" />
-        <button class="button" onclick="nextPage(6)">→</button>
+        <img src="https://i.pinimg.com/736x/76/82/98/768298bb411128b4720ff312f1347a0a.jpg" alt="Imagem 2" />
+        <button class="button" onclick="nextPage(5)">→</button>
     </div>
 
     <!-- Página 5 -->
@@ -75,17 +75,24 @@
 
     <!-- Página 6 (Imagem 1) -->
     <div id="page6" style="display:none;">
-        <img src="https://i.pinimg.com/736x/76/82/98/768298bb411128b4720ff312f1347a0a.jpg" alt="Imagem 1" />
+        <img src="https://i.pinimg.com/736x/40/e7/85/40e7859c02135a3e6c53ed89d9be9131.jpg" alt="Imagem 1" />
         <button class="button" onclick="nextPage(7)">→</button>
     </div>
 
     <!-- Página 7 (Enquete de Corações) -->
     <div id="page7" style="display:none;">
         <h2>Gostou dessa surpresa?</h2>
-        <span class="heart" onclick="increaseHearts()">❤️</span>
+        <span class="heart" onclick="increaseHearts()">💔</span>
         <span class="heart" onclick="increaseHearts()">❤️</span>
         <div id="heartPercentage">0%</div>
+<button class="button" onclick="nextPage(8)">→</button>
     </div>
+
+<!-- Página 8 (Te Amo) -->
+<div id="page8" style="display:none;">
+    <h2>Te amo!</h2>
+    <button class="button" onclick="nextPage(1)">Voltar ao início</button>
+</div>
 
 </div>
 
