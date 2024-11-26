@@ -2,117 +2,115 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Link Interativo</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-        .page { display: none; }
-        .active { display: block; }
-        button { padding: 10px 20px; font-size: 16px; margin: 10px; }
-        .heart { font-size: 50px; cursor: pointer; }
-        .heart.full { color: red; }
-        .heart.empty { color: gray; }
-        .progress { font-size: 20px; margin-top: 20px; }
+        body {
+            background-color: #f8d9e6;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            padding-top: 50px;
+        }
+        .button {
+            background-color: #ff4081;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #e7346b;
+        }
+        img {
+            width: 60%;
+            margin: 20px 0;
+        }
+        .heart {
+            font-size: 30px;
+            color: #ff4081;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <!-- Página 1: Pergunta inicial -->
-    <div id="page1" class="page active">
-        <h1>Você sabe o que é capaz de fazer com meus dias?</h1>
-        <button onclick="nextPage('sim', 1)">Sim</button>
-        <button onclick="nextPage('talvez não...', 2)">Talvez não...</button>
+
+<div class="container">
+    <!-- Página 1 -->
+    <div id="page1">
+        <h2>Você sabe o que é capaz de fazer com meus dias?</h2>
+        <button class="button" onclick="nextPage(2)">Sim</button>
+        <button class="button" onclick="nextPage(3)">Talvez não...</button>
     </div>
 
-    <!-- Página 2: Pergunta 2 -->
-    <div id="page2" class="page">
-        <h1>Quer descobrir?</h1>
-        <button onclick="nextPage('claro que sim', 3)">Claro que sim</button>
-        <button onclick="nextPage('não, sou babaca', 2)">Não, sou babaca</button>
+    <!-- Página 2 -->
+    <div id="page2" style="display:none;">
+        <h2>Quer descobrir?</h2>
+        <button class="button" onclick="nextPage(4)">Não, sou babaca</button>
+        <button class="button" onclick="nextPage(5)">Claro que sim</button>
     </div>
 
-    <!-- Página 3: Frase -->
-    <div id="page3" class="page">
-        <h1>Quando estou sem você eu fico assim...</h1>
-        <a href="javascript:void(0)" onclick="nextPage('next', 4)">Próxima &rarr;</a>
+    <!-- Página 3 (Frase) -->
+    <div id="page3" style="display:none;">
+        <h2>Quando estou sem você eu fico assim...</h2>
+        <button class="button" onclick="nextPage(6)">→</button>
     </div>
 
-    <!-- Página 4: Imagem -->
-    <div id="page4" class="page">
-        <img src="images/imagem1.jpg" alt="Imagem Surpresa">
-        <a href="javascript:void(0)" onclick="nextPage('next', 5)">Próxima &rarr;</a>
+    <!-- Página 4 (Imagem 2) -->
+    <div id="page4" style="display:none;">
+        <img src="https://i.pinimg.com/736x/40/e7/85/40e7859c02135a3e6c53ed89d9be9131.jpg" alt="Imagem 2" />
+        <button class="button" onclick="nextPage(7)">→</button>
     </div>
 
-    <!-- Página 5: Frase -->
-    <div id="page5" class="page">
-        <h1>Mas quando estou com você eu fico assim...</h1>
-        <a href="javascript:void(0)" onclick="nextPage('next', 6)">Próxima &rarr;</a>
+    <!-- Página 5 -->
+    <div id="page5" style="display:none;">
+        <h2>Mas quando tô com você eu fico assim...</h2>
+        <button class="button" onclick="nextPage(6)">→</button>
     </div>
 
-    <!-- Página 6: Outra Imagem -->
-    <div id="page6" class="page">
-        <img src="images/imagem2.jpg" alt="Outra Imagem Surpresa">
-        <a href="javascript:void(0)" onclick="nextPage('next', 7)">Próxima &rarr;</a>
+    <!-- Página 6 (Imagem 1) -->
+    <div id="page6" style="display:none;">
+        <img src="https://i.pinimg.com/736x/76/82/98/768298bb411128b4720ff312f1347a0a.jpg" alt="Imagem 1" />
+        <button class="button" onclick="nextPage(7)">→</button>
     </div>
 
-    <!-- Página 7: Enquete de Corações -->
-    <div id="page7" class="page">
-        <h1>Gostou dessa surpresa?</h1>
-        <div id="hearts">
-            <span id="heart1" class="heart empty" onclick="fillHeart(1)">&#10084;</span>
-            <span id="heart2" class="heart empty" onclick="fillHeart(2)">&#10084;</span>
-            <span id="heart3" class="heart empty" onclick="fillHeart(3)">&#10084;</span>
-            <span id="heart4" class="heart empty" onclick="fillHeart(4)">&#10084;</span>
-            <span id="heart5" class="heart empty" onclick="fillHeart(5)">&#10084;</span>
-            <span id="heart6" class="heart empty" onclick="fillHeart(6)">&#10084;</span>
-            <span id="heart7" class="heart empty" onclick="fillHeart(7)">&#10084;</span>
-            <span id="heart8" class="heart empty" onclick="fillHeart(8)">&#10084;</span>
-            <span id="heart9" class="heart empty" onclick="fillHeart(9)">&#10084;</span>
-            <span id="heart10" class="heart empty" onclick="fillHeart(10)">&#10084;</span>
-        </div>
-        <div class="progress" id="progress">Progresso: 0%</div>
-        <a href="javascript:void(0)" onclick="nextPage('next', 'end')">Finalizar &rarr;</a>
+    <!-- Página 7 (Enquete de Corações) -->
+    <div id="page7" style="display:none;">
+        <h2>Gostou dessa surpresa?</h2>
+        <span class="heart" onclick="increaseHearts()">❤️</span>
+        <span class="heart" onclick="increaseHearts()">❤️</span>
+        <div id="heartPercentage">0%</div>
     </div>
 
-    <!-- Página Final (Opcional) -->
-    <div id="end" class="page">
-        <h1>Obrigado pela participação!</h1>
-        <a href="javascript:void(0)" onclick="nextPage('next', 1)">Voltar ao início &rarr;</a>
-    </div>
+</div>
 
-    <script>
-        let heartsFilled = 0;
+<script>
+    let heartPercentage = 0;
 
-        function nextPage(answer, pageNumber) {
-            // Esconde todas as páginas
-            document.querySelectorAll('.page').forEach(function(page) {
-                page.classList.remove('active');
-            });
-
-            // Mostra a página atual
-            if (pageNumber === 'next') {
-                pageNumber = document.querySelectorAll('.page').length; // Seta o próximo número de página
-            }
-
-            document.getElementById('page' + pageNumber).classList.add('active');
+    function nextPage(pageNumber) {
+        // Esconder todas as páginas
+        for (let i = 1; i <= 7; i++) {
+            document.getElementById("page" + i).style.display = "none";
         }
+        // Mostrar a página desejada
+        document.getElementById("page" + pageNumber).style.display = "block";
+    }
 
-        function fillHeart(heartNum) {
-            const heart = document.getElementById('heart' + heartNum);
-            if (heart.classList.contains('empty')) {
-                heart.classList.remove('empty');
-                heart.classList.add('full');
-                heartsFilled += 1;
-            } else {
-                heart.classList.remove('full');
-                heart.classList.add('empty');
-                heartsFilled -= 1;
-            }
-            updateProgress();
+    function increaseHearts() {
+        if (heartPercentage < 100) {
+            heartPercentage += 10;
+            document.getElementById("heartPercentage").innerText = heartPercentage + "%";
         }
+    }
 
-        function updateProgress() {
-            const progress = Math.round((heartsFilled / 10) * 100);
-            document.getElementById('progress').textContent = 'Progresso: ' + progress + '%';
-        }
-    </script>
+    // Começar mostrando a primeira página
+    nextPage(1);
+</script>
+
 </body>
 </html>
